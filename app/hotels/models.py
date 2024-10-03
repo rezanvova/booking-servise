@@ -1,6 +1,8 @@
 from sqlalchemy import JSON, Column, Integer, String , ForeignKey
 from app.database import Base
-
+from fastapi import Query
+from typing import Optional
+from datetime import date
 
 class Hotels(Base):
 
@@ -23,3 +25,21 @@ class Rooms(Base):
     services = Column(JSON, nullable=True)
     quantity = Column(Integer, nullable=False)
     image_id = Column(Integer)
+
+class HotelsSearchArgs():
+    def __init__(
+            self,
+            location: str,
+            date_from: date,
+            date_to: date,
+            has_spa: Optional[bool] = None,
+            stars: Optional[int] = Query(None, ge=1, le=5)
+    ):
+        self.location = location
+        self.date_from = date_from
+        self.date_to = date_to
+        self.has_spa = has_spa
+        self.stars = stars
+
+
+
