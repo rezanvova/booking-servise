@@ -26,6 +26,7 @@ class Rooms(Base):
     quantity = Column(Integer, nullable=False)
     image_id = Column(Integer)
 
+
 class HotelsSearchArgs():
     def __init__(
             self,
@@ -40,6 +41,5 @@ class HotelsSearchArgs():
         self.date_to = date_to
         self.has_spa = has_spa
         self.stars = stars
-
 
 
