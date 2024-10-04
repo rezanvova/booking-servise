@@ -1,8 +1,10 @@
-
 from pydantic import BaseModel
 
 
 class SHotel(BaseModel):
-        address: str
-        name: str
-        stars: int
+	id: int
+	name: str
+	location: str
+	services: list
+	rooms_quantity: int
+	image_id: int
